@@ -21,7 +21,7 @@ const tempShopping = fs.readFileSync(
   'utf-8'
 );
 const templanding = fs.readFileSync(
-  `${__dirname}/templates/index.html`,
+  `${__dirname}/index.html`,
   'utf-8'
 );
 
@@ -48,12 +48,17 @@ server.on("request", (req, res) => {
     res.writeHead(200, {
       'Content-type': 'text/html'
     });
-  } else if (pathname === '/index.html') {
+    const product = dataObj[query.id];
+    const output = replaceTemplate(tempProduct, product);
+    res.end(output);
+
+  }else if (pathname === '/index.html') {
     res.writeHead(200, {
       'Content-type': 'text/html',
     });
     res.end(templanding);
-
+    
+    
     // Shopping cart page
   } else if (pathname === '/shopping-cart') {
     res.writeHead(200, {
@@ -62,11 +67,11 @@ server.on("request", (req, res) => {
     const product = dataObj[query.id];
     const output = replaceTemplate(tempShopping, product);
     res.end(output);
-
-    // API
-  } else if (pathname === '/api') {
+    
+  // API
+} else if (pathname === '/api') {
     res.writeHead(200, {
-      'Content-type': 'application/json',
+      'Content-type': 'application/json'
     });
     res.end(data);
 
@@ -74,7 +79,7 @@ server.on("request", (req, res) => {
   } else {
     res.writeHead(404, {
       'Content-type': 'text/html',
-      'my-own-header': 'hello-world',
+      'my-own-header': 'hello-world'
     });
     res.end('<h1>Page not found!</h1>');
   }
