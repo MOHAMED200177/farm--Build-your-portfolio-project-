@@ -34,7 +34,7 @@ server.on("request", (req, res) => {
   const { query, pathname } = url.parse(req.url, true);
 
   // Overview page
-  if (pathname === '/' || pathname === '/index.js/overview') {
+  if (pathname === '/overview') {
     res.writeHead(200, {
       'Content-type': 'text/html',
     });
