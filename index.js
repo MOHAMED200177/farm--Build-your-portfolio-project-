@@ -34,34 +34,31 @@ server.on("request", (req, res) => {
   const { query, pathname } = url.parse(req.url, true);
 
   // Overview page
-  if (
-    pathname === '/' ||
-    pathname === '/main--ornate-crumble-1b67ec.netlify.app/overview'
-  ) {
+  if (pathname === '/' || pathname === '/overview') {
     res.writeHead(200, {
-      'Content-type': 'text/html',
+      'Content-type': 'text/html'
     });
 
-    const cardsHtml = dataObj
-      .map((el) => replaceTemplate(tempCard, el))
-      .join('');
+    const cardsHtml = dataObj.map(el => replaceTemplate(tempCard, el)).join('');
     const output = tempOverview.replace('{%PRODUCT_CARDS%}', cardsHtml);
     res.end(output);
 
     // Product page
   } else if (pathname === '/product') {
     res.writeHead(200, {
-      'Content-type': 'text/html',
+      'Content-type': 'text/html'
     });
     const product = dataObj[query.id];
     const output = replaceTemplate(tempProduct, product);
     res.end(output);
-  } else if (pathname === '/index.html') {
+
+  }else if (pathname === '/index.html') {
     res.writeHead(200, {
       'Content-type': 'text/html',
     });
     res.end(templanding);
-
+    
+    
     // Shopping cart page
   } else if (pathname === '/shopping-cart') {
     res.writeHead(200, {
@@ -70,11 +67,11 @@ server.on("request", (req, res) => {
     const product = dataObj[query.id];
     const output = replaceTemplate(tempShopping, product);
     res.end(output);
-
-    // API
-  } else if (pathname === '/api') {
+    
+  // API
+} else if (pathname === '/api') {
     res.writeHead(200, {
-      'Content-type': 'application/json',
+      'Content-type': 'application/json'
     });
     res.end(data);
 
@@ -82,7 +79,7 @@ server.on("request", (req, res) => {
   } else {
     res.writeHead(404, {
       'Content-type': 'text/html',
-      'my-own-header': 'hello-world',
+      'my-own-header': 'hello-world'
     });
     res.end('<h1>Page not found!</h1>');
   }
