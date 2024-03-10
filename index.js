@@ -43,17 +43,31 @@ app.get('/overview', (req, res) => {
 });
 
 app.get('/product', (req, res) => {
-  res.writeHead(200, { 'Content-type': 'text/html' });
   const productId = req.query.id;
   const product = dataObj.find((item) => item.id === productId);
+
+  if (!product) {
+    res.writeHead(404, { 'Content-type': 'text/html' });
+    res.end('<h1>Product not found!</h1>');
+    return;
+  }
+
+  res.writeHead(200, { 'Content-type': 'text/html' });
   const output = replaceTemplate(tempProduct, product);
   res.end(output);
 });
 
 app.get('/shopping-cart', (req, res) => {
-  res.writeHead(200, { 'Content-type': 'text/html' });
   const productId = req.query.id;
   const product = dataObj.find((item) => item.id === productId);
+
+  if (!product) {
+    res.writeHead(404, { 'Content-type': 'text/html' });
+    res.end('<h1>Product not found!</h1>');
+    return;
+  }
+
+  res.writeHead(200, { 'Content-type': 'text/html' });
   const output = replaceTemplate(tempShopping, product);
   res.end(output);
 });
