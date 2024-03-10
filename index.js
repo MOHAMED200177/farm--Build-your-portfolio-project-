@@ -21,7 +21,7 @@ const tempShopping = fs.readFileSync(
   'utf-8'
 );
 const templanding = fs.readFileSync(
-  `${__dirname}/index.html`,
+  `${__dirname}/index2.html`,
   'utf-8'
 );
 
@@ -33,8 +33,14 @@ console.log(slugs);
 server.on("request", (req, res) => {
   const { query, pathname } = url.parse(req.url, true);
 
+ if (pathname === '/') {
+    res.writeHead(200, {
+      'Content-type': 'text/html',
+    });
+    res.end(templanding);
+
   // Overview page
-  if (pathname === '/overview') {
+   } else if (pathname === '/overview') {
     res.writeHead(200, {
       'Content-type': 'text/html',
     });
@@ -53,11 +59,6 @@ server.on("request", (req, res) => {
     const product = dataObj[query.id];
     const output = replaceTemplate(tempProduct, product);
     res.end(output);
-  } else if (pathname === '/index.html') {
-    res.writeHead(200, {
-      'Content-type': 'text/html',
-    });
-    res.end(templanding);
 
     // Shopping cart page
   } else if (pathname === '/shopping-cart') {
