@@ -43,12 +43,11 @@ app.get('/overview', (req, res) => {
 });
 
 app.get('/product', (req, res) => {
-  const productId = req.query.id;
+  const productId = parseInt(req.query.id);
   const product = dataObj.find((item) => item.id === productId);
 
   if (!product) {
-    res.writeHead(404, { 'Content-type': 'text/html' });
-    res.end('<h1>Product not found!</h1>');
+    res.status(404).send('<h1>Product not found!</h1>');
     return;
   }
 
@@ -57,13 +56,13 @@ app.get('/product', (req, res) => {
   res.end(output);
 });
 
+
 app.get('/shopping-cart', (req, res) => {
-  const productId = req.query.id;
+  const productId = parseInt(req.query.id);
   const product = dataObj.find((item) => item.id === productId);
 
   if (!product) {
-    res.writeHead(404, { 'Content-type': 'text/html' });
-    res.end('<h1>Product not found!</h1>');
+    res.status(404).send('<h1>Product not found!</h1>');
     return;
   }
 
@@ -85,6 +84,6 @@ app.use((req, res) => {
   res.end('<h1>Page not found!</h1>');
 });
 
-app.listen(port, '0.0.0.0', () => {
-  console.log(`Listening to requests on port ${port}`);
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
 });
