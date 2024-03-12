@@ -1,55 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Megrim|Nunito+Sans:400,900"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/155/ear-of-maize_1f33d.png"
+    />
+
+    <title>{%PRODUCTNAME%} {%IMAGE%} /// NODE FARM</title>
 </head>
-<style>/* styles.css */
+<style>
 
 /* Container styles */
-body {
-    padding: 5rem 5rem 10rem;
-    line-height: 1.7;
-    font-family: 'Nunito Sans', sans-serif;
-    color: #555;
-    min-height: 100vh;
-    background: linear-gradient(to bottom right, #d7e3cc, #ffffff);
-}
-h1 {
-    font-family: 'Megrim', sans-serif;
-    font-size: 4rem;
-    color: rgb(41, 245, 75);
-    transform: skewY(-5deg);
-    text-align: center;
-    position: relative;
-    word-spacing: 3px;
-    margin-top: -50px;
-}
-h1:hover {
-    color: rgb(5, 129, 1);
-    transform: skewY(352deg);
-}
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
+  *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: inherit;
+      }
+
+      html {
+        font-size: 62.5%;
+        box-sizing: border-box;
+      }
+
+      body {
+        padding: 5rem 5rem 10rem;
+        line-height: 1.7;
+        font-family: 'Nunito Sans', sans-serif;
+        color: #000000;
+        min-height: 100vh;
+        
+        background: linear-gradient(to bottom right, #ffffff, #ffffff);
+      }
+
+      h1 {
+        font-family: 'Megrim', sans-serif;
+        font-size: 6rem;
+        color: white;
+        transform: skewY(-5deg);
+        text-align: center;
+        position: relative;
+        word-spacing: 3px;
+      }
+
+      h1::before {
+        border-radius: 50%;
+        content: '';
+        display: block;
+        height: 100%;
+        width: 49%;
+        position: absolute;
+        top: 105%;
+        left: 50%;
+        background: linear-gradient(to bottom, #58bd00, #000000);
+        opacity: 0.8;
+        z-index: -1;
+        transform: skewY(370deg) translate(-60%, -50%);
+      }
+
+      h1:hover {
+        color: rgb(27, 226, 20);
+        transform: skewY(352deg);
+      }
+
+      .container {
+        width: 95rem;
+        margin: 0 auto;
+      }
 
 /* Cart item styles */
 .cart-items {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        width: 40rem;
-        height: 40rem;
-        margin: 0 auto;
-        margin-top: 5rem;
-        box-shadow: inset 0 4rem 12rem 1rem rgba(79, 252, 11, 0.616);
-        background-color: #b8f385;
-        position: relative;
-        border-radius: 50%;
+display: flex;
+    justify-content: flex-start;
+    width: 90rem;
+    height: 70rem;
+    margin: 0px auto;
+    margin-top: 9rem;
+    box-shadow: -20px 12rem 15rem 0rem rgb(0 0 0 / 62%);
+    background-color: #e1f3d2;
+    position: relative;
+    border-radius: 10%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 
 .item-image {
@@ -63,20 +104,44 @@ h1:hover {
 }
 
 .item-details {
-    flex-grow: 1;
+    position: relative;
+    left: 65%;
+    color: rgb(3, 80, 10);
+    font-family: 'Megrim', sans-serif;
+    font-size: 2rem;
 }
 
 h2 {
     margin-top: 0;
     font-family: 'Megrim', sans-serif;
     font-size: 2rem;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: xxx-large;
-    opacity: 0.5;
+}
+.name{
+    position: relative;
+    top: -230px;
+    left: 65%;
+    color: rgb(3, 80, 10);
+    opacity: 1;
+
 }
 p {
-    color: #000000;
-    font-size: large;
+
+    color: #003b05;
+    font-size: x-large;
+    margin-bottom: 10px;
+    position: relative;
+    left: -172px;
+
+}
+
+.Price {
+    color: #007bff;
+    position: relative;
+    left: 8px;
+    margin-bottom: 5px;
+
 }
 
 /* Cart summary styles */
@@ -84,6 +149,8 @@ p {
     margin-top: 20px;
     border-top: 1px solid #ccc;
     padding-top: 20px;
+    position: relative;
+    right: -155px;
 }
 
 .cart-summary p {
@@ -108,22 +175,22 @@ p {
 </style>
 <body>
     <div class="container">
-        <h1>Shopping Cart </h1>
+      <h1> Our Farm 🥑 </h1>
         <div class="cart-items">
             <!-- Each item in the cart will be dynamically added here -->
             <!-- Example item -->
             <div class="cart-item">
                 <div class="item-image">
                 </div>
+                <h2 class="name">{%PRODUCTNAME%}</h2>
                 <div class="item-details">
-                    <h2>{%PRODUCTNAME%}</h2>
                     <p>PRICE: €{%PRICE%}</p>
                     <p>QUANTITY: {%QUANTITY%}</p>
                 </div>
             </div>
             <div class="cart-summary">
                 <h2>Cart Summary</h2>
-                <p>Total Price: €{%PRICE%}</p>
+                <p class="Price">Total Price: €{%PRICE%}</p>
                 <button class="checkout-btn">Checkout</button>
             </div>
         </div>
