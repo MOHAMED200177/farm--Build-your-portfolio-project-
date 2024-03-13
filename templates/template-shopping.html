@@ -152,7 +152,9 @@ p {
 
 
 /* Button styles */
-
+a{
+  text-decoration: none;
+}
 .cta {
   display: flex;
   padding: 11px 33px;
@@ -165,7 +167,13 @@ p {
   box-shadow: 6px 6px 0 black;
   transform: skewX(-15deg);
   border: none;
+  width: 200px;
   
+}
+
+.cta .span {
+  text-decoration: none;
+  transform: skewX(15deg);
 }
 
 .cta:focus {
@@ -176,6 +184,7 @@ p {
   transition: 0.5s;
   box-shadow: 10px 10px 0 #FBC638;
     color: rgb(0, 0, 0);
+  width: 250px;
 }
 
 .cta .second {
@@ -459,7 +468,8 @@ p {
             <div class="cart-summary">
                 <h2>Cart Summary</h2>
                 <p class="Price">Total Price: €{%PRICE%}</p>
-                <button class="cta">
+<a href="d">
+  <div class="cta">
     <span class="span">NEXT</span>
     <span class="second">
       <svg width="50px" height="20px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -470,7 +480,9 @@ p {
         </g>
       </svg>
     </span> 
-</button>
+  </div>
+</a>
+
             </div>
         </div>
         <div class="loader">
