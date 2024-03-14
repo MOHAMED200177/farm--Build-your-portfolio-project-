@@ -1,303 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Megrim|Nunito+Sans:400,900"
-      rel="stylesheet"
-    />
-    <link
-      rel="icon"
-      href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/155/ear-of-maize_1f33d.png"
-    />
-
-    <title>{%PRODUCTNAME%} {%IMAGE%} /// NODE FARM</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Megrim|Nunito+Sans:400,900" rel="stylesheet">
+  <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/155/ear-of-maize_1f33d.png">
+  <title>{%PRODUCTNAME%} {%IMAGE%} /// NODE FARM</title>
   <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-      *,
-      *::before,
-      *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: inherit;
+    body {
+      padding: 2rem;
+      line-height: 1.7;
+      font-family: 'Nunito Sans', sans-serif;
+      color: #555;
+      min-height: 100vh;
+      background: linear-gradient(to bottom right, #96e9ec, #416901);
+    }
+
+    h1 {
+      font-family: 'Megrim', sans-serif;
+      font-size: 3.5rem;
+      color: white;
+      transform: skewY(-5deg);
+      text-align: center;
+      position: relative;
+      word-spacing: 3px;
+      margin-top: 20px;
+    }
+
+    h1::before {
+      border-radius: 50%;
+      content: '';
+      display: block;
+      height: 100%;
+      width: 49%;
+      position: absolute;
+      top: 105%;
+      left: 50%;
+      background: linear-gradient(to bottom, #58bd00, #000000);
+      opacity: 0.8;
+      z-index: -1;
+      transform: skewY(370deg) translate(-60%, -50%);
+    }
+
+    h1:hover {
+      color: rgb(122, 248, 118);
+      transform: skewY(352deg);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 30px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-image: linear-gradient(to left bottom, #9be15d, #00e3ae);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input {
+      border: none;
+      outline: none;
+      border-radius: 15px;
+      padding: 1em;
+      background-color: #ccc;
+      box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+      transition: 300ms ease-in-out;
+      margin-bottom: 20px;
+    }
+
+    .input:focus {
+      background-color: white;
+      transform: scale(1.05);
+      box-shadow: 13px 13px 100px #969696,
+                 -13px -13px 100px #ffffff;
+    }
+
+    .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 13rem;
+      overflow: hidden;
+      height: 3rem;
+      background-size: 300% 300%;
+      backdrop-filter: blur(1rem);
+      border-radius: 5rem;
+      transition: 0.5s;
+      animation: gradient_301 5s ease infinite;
+      border: double 4px transparent;
+      background-image: linear-gradient(#212121, #212121),  
+                        linear-gradient(137.48deg, #ffdb3b 10%, #FE53BB 45%, #8F51EA 67%, #0044ff 87%);
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+    }
+
+    #container-stars {
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      transition: 0.5s;
+      backdrop-filter: blur(1rem);
+      border-radius: 5rem;
+    }
+
+    strong {
+      z-index: 2;
+      font-family: 'Avalors Personal Use';
+      font-size: 12px;
+      letter-spacing: 5px;
+      color: #FFFFFF;
+      text-shadow: 0 0 4px white;
+    }
+
+    #glow {
+      position: absolute;
+      display: flex;
+      width: 12rem;
+    }
+
+    .circle {
+      width: 100%;
+      height: 30px;
+      filter: blur(2rem);
+      animation: pulse_3011 4s infinite;
+      z-index: -1;
+    }
+
+    .circle:nth-of-type(1) {
+      background: rgba(254, 83, 186, 0.636);
+    }
+
+    .circle:nth-of-type(2) {
+      background: rgba(142, 81, 234, 0.704);
+    }
+
+    .btn:hover #container-stars {
+      z-index: 1;
+      background-color: #212121;
+    }
+
+    .btn:hover {
+      transform: scale(1.1)
+    }
+
+    .btn:active {
+      border: double 4px #FE53BB;
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+      animation: none;
+    }
+
+    .btn:active .circle {
+      background: #FE53BB;
+    }
+
+    #stars {
+      position: relative;
+      background: transparent;
+      width: 200rem;
+      height: 200rem;
+    }
+
+    #stars::after {
+      content: "";
+      position: absolute;
+      top: -10rem;
+      left: -100rem;
+      width: 100%;
+      height: 100%;
+      animation: animStarRotate 90s linear infinite;
+    }
+
+    #stars::after {
+      background-image: radial-gradient(#ffffff 1px, transparent 1%);
+      background-size: 50px 50px;
+    }
+
+    #stars::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 170%;
+      height: 500%;
+      animation: animStar 60s linear infinite;
+    }
+
+    #stars::before {
+      background-image: radial-gradient(#ffffff 1px, transparent 1%);
+      background-size: 50px 50px;
+      opacity: 0.5;
+    }
+
+    @keyframes animStar {
+      from {
+        transform: translateY(0);
       }
-      body {
-        padding: 5rem 5rem 10rem;
-        line-height: 1.7;
-        font-family: 'Nunito Sans', sans-serif;
-        color: #555;
-        min-height: 100vh;
-        background: linear-gradient(to bottom right, #96e9ec, #416901);
+
+      to {
+        transform: translateY(-135rem);
+      }
+    }
+
+    @keyframes animStarRotate {
+      from {
+        transform: rotate(360deg);
       }
 
-        h1 {
-        font-family: 'Megrim', sans-serif;
-        font-size: 4rem;
-        color: white;
-        transform: skewY(-5deg);
-        text-align: center;
-        position: relative;
-        word-spacing: 3px;
-        top: -40px;
+      to {
+        transform: rotate(0);
+      }
+    }
+
+    @keyframes gradient_301 {
+      0% {
+        background-position: 0% 50%;
       }
 
-      h1::before {
-        border-radius: 50%;
-        content: '';
-        display: block;
-        height: 100%;
-        width: 49%;
-        position: absolute;
-        top: 105%;
-        left: 50%;
-        background: linear-gradient(to bottom, #58bd00, #000000);
-        opacity: 0.8;
-        z-index: -1;
-        transform: skewY(370deg) translate(-60%, -50%);
+      50% {
+        background-position: 100% 50%;
       }
-      h1:hover {
-        color: rgb(122, 248, 118);
-        transform: skewY(352deg);
+
+      100% {
+        background-position: 0% 50%;
       }
-.container {
-  width: 400px;
-  margin: 50px auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 30px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  height: 400px;
-  background-image: linear-gradient(to left bottom, #9be15d, #00e3ae);
+    }
 
-}
+    @keyframes pulse_3011 {
+      0% {
+        transform: scale(0.75);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+      }
 
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+      }
 
-h2 {
-  text-align: center;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-
-}
-
-.input {
-  border: none;
-  outline: none;
-  border-radius: 15px;
-  padding: 1em;
-  background-color: #ccc;
-  box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
-  transition: 300ms ease-in-out;
-margin-bottom: 20px;
-}
-
-.input:focus {
-  background-color: white;
-  transform: scale(1.05);
-  box-shadow: 13px 13px 100px #969696,
-             -13px -13px 100px #ffffff;
-}
-
-
-.btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 13rem;
-  overflow: hidden;
-  height: 3rem;
-  background-size: 300% 300%;
-  backdrop-filter: blur(1rem);
-  border-radius: 5rem;
-  transition: 0.5s;
-  animation: gradient_301 5s ease infinite;
-  border: double 4px transparent;
-  background-image: linear-gradient(#212121, #212121),  linear-gradient(137.48deg, #ffdb3b 10%,#FE53BB 45%, #8F51EA 67%, #0044ff 87%);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-}
-
-#container-stars {
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  transition: 0.5s;
-  backdrop-filter: blur(1rem);
-  border-radius: 5rem;
-}
-
-strong {
-  z-index: 2;
-  font-family: 'Avalors Personal Use';
-  font-size: 12px;
-  letter-spacing: 5px;
-  color: #FFFFFF;
-  text-shadow: 0 0 4px white;
-}
-
-#glow {
-  position: absolute;
-  display: flex;
-  width: 12rem;
-}
-
-.circle {
-  width: 100%;
-  height: 30px;
-  filter: blur(2rem);
-  animation: pulse_3011 4s infinite;
-  z-index: -1;
-}
-
-.circle:nth-of-type(1) {
-  background: rgba(254, 83, 186, 0.636);
-}
-
-.circle:nth-of-type(2) {
-  background: rgba(142, 81, 234, 0.704);
-}
-
-.btn:hover #container-stars {
-  z-index: 1;
-  background-color: #212121;
-}
-
-.btn:hover {
-  transform: scale(1.1)
-}
-
-.btn:active {
-  border: double 4px #FE53BB;
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-  animation: none;
-}
-
-.btn:active .circle {
-  background: #FE53BB;
-}
-
-#stars {
-  position: relative;
-  background: transparent;
-  width: 200rem;
-  height: 200rem;
-}
-
-#stars::after {
-  content: "";
-  position: absolute;
-  top: -10rem;
-  left: -100rem;
-  width: 100%;
-  height: 100%;
-  animation: animStarRotate 90s linear infinite;
-}
-
-#stars::after {
-  background-image: radial-gradient(#ffffff 1px, transparent 1%);
-  background-size: 50px 50px;
-}
-
-#stars::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -50%;
-  width: 170%;
-  height: 500%;
-  animation: animStar 60s linear infinite;
-}
-
-#stars::before {
-  background-image: radial-gradient(#ffffff 1px, transparent 1%);
-  background-size: 50px 50px;
-  opacity: 0.5;
-}
-
-@keyframes animStar {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(-135rem);
-  }
-}
-
-@keyframes animStarRotate {
-  from {
-    transform: rotate(360deg);
-  }
-
-  to {
-    transform: rotate(0);
-  }
-}
-
-@keyframes gradient_301 {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes pulse_3011 {
-  0% {
-    transform: scale(0.75);
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-  }
-
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-  }
-
-  100% {
-    transform: scale(0.75);
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-  }
-}
-
-
+      100% {
+        transform: scale(0.75);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      }
+    }
   </style>
 </head>
 <body>
-          <h1> Our Farm 🥑 </h1>
+  <h1>Our Farm 🥑</h1>
   <div class="container">
     <h2>Register</h2>
     <form>
-        <input type="text" autocomplete="off" name="text" class="input" placeholder="Username">
-        <input type="text" autocomplete="off" name="text" class="input" placeholder="phone">
-        <input type="text" autocomplete="off" name="text" class="input" placeholder="adress">
-        <input type="text" autocomplete="off" name="text" class="input" placeholder="coment">
+      <input type="text" autocomplete="off" name="text" class="input" placeholder="Username">
+      <input type="text" autocomplete="off" name="text" class="input" placeholder="Phone">
+      <input type="text" autocomplete="off" name="text" class="input" placeholder="Address">
+      <input type="text" autocomplete="off" name="text" class="input" placeholder="Comment">
     </form>
-<button class="btn" type="button">
-  <strong>DONE</strong>
-  <div id="container-stars">
-    <div id="stars"></div>
+    <button class="btn" type="button">
+      <strong>DONE</strong>
+      <div id="container-stars">
+        <div id="stars"></div>
+      </div>
+      <div id="glow">
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+    </button>
   </div>
-
-  <div id="glow">
-    <div class="circle"></div>
-    <div class="circle"></div>
-  </div>
-</button>
-
-  </div>
-  
 </body>
 </html>
