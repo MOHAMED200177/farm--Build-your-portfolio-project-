@@ -4,132 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Landing Page</title>
-    <style>
-        /* Typography */
-        body {
-            font-family: 'Arial', sans-serif;
-            font-size: 16px;
-            line-height: 1.6;
-            color: #1c5203;
-            background-color: #ffffff;
-            margin: 0; /* Reset default margin */
-            padding: 0; /* Reset default padding */
-        }
-        
-        p {
-            font-size: 1rem; /* Adjust font size for better readability on smaller screens */
-        }
-        
-        h1, h2, h3 {
-            font-weight: bold;
-            color: #243f01;
-        }
-        
-        h1 {
-            font-size: 2rem; /* Adjust font size for better readability on smaller screens */
-            margin-bottom: 20px;
-            color:#063d00;
-        }
-        
-        h2 {
-            font-size: 1.5rem; /* Adjust font size for better readability on smaller screens */
-            margin-bottom: 15px; /* Adjust margin for better spacing */
-        }
-        
-        h3 {
-            font-size: 1.2rem; /* Adjust font size for better readability on smaller screens */
-            margin-bottom: 15px; /* Adjust margin for better spacing */
-        }
-        
-        /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: space-between; /* Distribute items evenly */
-            align-items: center; /* Vertically center items */
-            padding: 10px;
-            background-color: #f4f4f4;
-        }
-        
-        .nav-links {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .nav-links li {
-            display: inline;
-            margin-right: 20px; /* Adjust margin for better spacing */
-        }
-        
-        .nav-links li a {
-            color: #000;
-            text-decoration: none;
-        }
-        
-        .nav-links li a:hover {
-            color: #a72525;
-        }
-        
-        /* Hero section */
-        .hero {
-            padding: 50px 20px; /* Adjust padding for better spacing */
-            text-align: center;
-        }
-        
-        .hero-title {
-            font-size: 2rem; /* Adjust font size for better readability on smaller screens */
-            margin-bottom: 10px; /* Adjust margin for better spacing */
-        }
-        
-        .hero-subtitle {
-            font-size: 1rem; /* Adjust font size for better readability on smaller screens */
-            margin-bottom: 20px; /* Adjust margin for better spacing */
-        }
-        
-        /* CTA button */
-        .cta-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #00500d;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 30px;
-            font-size: 16px;
-            margin-top: 20px; /* Adjust margin for better spacing */
-        }
-        
-        .cta-button:hover {
-            background-color: #008d1f;
-        }
-        
-        /* Footer */
-        .footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        /* Make the footer stick to the bottom */
-        html, body {
-            height: 100%;
-        }
-        
-        .footer {
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>/* Typography */
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #1c5203;
+    background-color: #ffffff;
+}
+p {
+    font-size: x-large;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+    color: #243f01;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color:#063d00;
+    position: relative;
+    right: -17px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    padding: 10px 0
+}
+
+.nav-links {
+  list-style-type: none; /* Remove default list styling */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.nav-links li {
+  display: inline; /* Display list items horizontally */
+}
+
+.nav-links li a {
+  color: rgb(0, 0, 0); /* Text color of the links */
+  text-decoration: none; /* Remove underline from links */
+  padding: 10px 20px; /* Padding around the links */
+}
+
+.nav-links li a:hover {
+    color: rgb(167, 37, 37);
+}
+
+
+.farm {
+    color: rgb(9, 151, 9);
+}
+ul {
+    display: flex;
+}
+
+li {
+    margin-right: 80px;
+    color: #1d4100;
+}
+/* Hover effects */
+.cta-button {
+    display: flex;
+    padding: 10px 20px;
+    background-color: #00500d;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 30px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    width: 200px;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.cta-button:hover {
+    background-color: #008d1f;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    align-items: center;
+}
+
+
+
+/* Spacing */
+.container {
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero {
+    padding: 100px 0;
+}
+
+
+/* Footer styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 2px solid #0056b3;
+    position: relative;
+    bottom: -230px;
+}
+
+.footer p {
+    margin-bottom: 0;
+}
+.footer:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+</style>
 </head>
 <body>
     <header class="header">
+      <h1 class="logo">our farm</h1>
         <div class="container">
-            <h1 class="logo">Our Farm</h1>
             <nav class="navbar">
                 <ul class="nav-links">
                     <li><a href="#">Home</a></li>
-                    <li><a href="/login">Login</a></li>
+                    <li><a href="/login">login</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
@@ -138,7 +160,7 @@
 
     <section class="hero">
         <div class="container">
-            <h2 class="hero-title">Welcome to Your Farm</h2>
+            <h2 class="hero-title">Welcome dude in your <span class="farm">farm</span></h2>
             <p class="hero-subtitle">Welcome to Farm Fresh Harvest, your premier destination for sustainably grown vegetables straight from the farm to your table. Embrace the goodness of farm-fresh produce and discover the joy of eating well with our diverse selection of vibrant vegetables. Whether you're a seasoned chef, a health-conscious individual, or someone simply seeking the finest quality ingredients, Farm Fresh Harvest is your trusted partner in cultivating a healthier, more flavorful lifestyle.</p>
             <a href="/overview" class="cta-button">Get Started</a>
         </div>
@@ -151,3 +173,4 @@
     </footer>
 </body>
 </html>
+
