@@ -23,6 +23,10 @@ const tempShopping = fs.readFileSync(
   `${__dirname}/templates/template-shopping.html`,
   'utf-8'
 );
+const tempinf = fs.readFileSync(
+  `${__dirname}/templates/template-inf.html`,
+  'utf-8'
+);
 const templanding = fs.readFileSync(`${__dirname}/index2.html`, 'utf-8');
 
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8');
@@ -69,6 +73,11 @@ app.get('/shopping-cart', (req, res) => {
   res.writeHead(200, { 'Content-type': 'text/html' });
   const output = replaceTemplate(tempShopping, product);
   res.end(output);
+});
+app.get('/information', (req, res) => {
+
+  res.writeHead(200, { 'Content-type': 'text/html' });
+  res.end(tempinf);
 });
 
 app.get('/api', (req, res) => {
