@@ -27,7 +27,9 @@ const tempinf = fs.readFileSync(
   `${__dirname}/templates/template-inf.html`,
   'utf-8'
 );
+
 const templanding = fs.readFileSync(`${__dirname}/index2.html`, 'utf-8');
+const templogin = fs.readFileSync(`${__dirname}/login.html`, 'utf-8');
 
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8');
 const dataObj = JSON.parse(data);
@@ -37,6 +39,11 @@ console.log(slugs);
 app.get('/', (req, res) => {
   res.writeHead(200, { 'Content-type': 'text/html' });
   res.end(templanding);
+});
+
+app.get('/login', (req, res) => {
+  res.writeHead(200, { 'Content-type': 'text/html' });
+  res.end(templogin);
 });
 
 app.get('/overview', (req, res) => {

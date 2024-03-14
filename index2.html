@@ -49,7 +49,29 @@ p {
     position: absolute;
     top: 40px;
     right: 30px;
+    padding: 10px 0
 }
+
+.nav-links {
+  list-style-type: none; /* Remove default list styling */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.nav-links li {
+  display: inline; /* Display list items horizontally */
+}
+
+.nav-links li a {
+  color: rgb(0, 0, 0); /* Text color of the links */
+  text-decoration: none; /* Remove underline from links */
+  padding: 10px 20px; /* Padding around the links */
+}
+
+.nav-links li a:hover {
+    color: rgb(167, 37, 37);
+}
+
 
 .farm {
     color: rgb(9, 151, 9);
@@ -129,8 +151,7 @@ li {
             <nav class="navbar">
                 <ul class="nav-links">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">Pricing</a></li>
+                    <li><a href="/login">login</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
